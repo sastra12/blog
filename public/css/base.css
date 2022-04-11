@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&family=Playfair+Display:wght@800&display=swap');
+
+:root{
+    --primary-color: #183B56;
+    --secondary-color: #5A7184;
+    --orange : #FAAD13;
+    --blue : #0A83FF;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+*,
+::after,
+::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Mulish', sans-serif;
+}
+
+h1,h2,h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 1.6rem 0;
+}
+
+p {
+    font-weight: 400;
+    margin: 1.6rem 0;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    line-height: 1.5;
+    text-align: justify;
+}
+
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 3rem;
+    letter-spacing: 1.5;
+}
+
+h3{
+    font-size: 2.5rem;
+    letter-spacing: 1.5;
+}
+
+h4{
+    font-size: 1.6rem;
+}
+
+span{
+    color: var(--secondary-color);
+    opacity: 70%;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 3rem;
+    }
+}
+
+a{
+    text-decoration: none;
+    /* background-color: red; */
+    margin: 1.6rem 0;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    /* border-bottom: 2px dotted var(--primary-color); */
+}
+
+.site-container{
+    width: 80%;
+    margin: 0 auto;
+    /* background-color: green; */
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Navigation */
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+nav .menu a{
+    border-bottom: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-left: 24px;
+}
+
+.mobile-menu{
+    display: none;
+}
+
+@media screen and ( max-width:768px ){
+    .mobile-menu{
+        display: block;
+        font-size: 24px;
+    }
+
+    .menu{
+        position: absolute;
+        /* background-color: red; */
+        width: 100%;
+        top: 100%;
+        z-index: 99;
+        display: none;
+    }
+
+    .menu a{
+        display: block;
+        font-size: 16px;
+        padding: 12px 0;
+    }
+
+    .show{
+        background-color: white;
+        opacity: 90%;
+        display: block;
+    }
+}
+
+
+
+/* Footer */
+footer{
+    background-color:var(--primary-color);
+    margin-top: 80px;
+    padding: 60px 0;
+}
+
+footer p,h3,i{
+    color: #697D8D;
+}
+
+.social-icons i{
+    font-size: 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 20%;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+.footer-class{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    column-gap: 16px;
+
+}
+
+.footer-class h3{
+    color: var(--secondary-color);
+}
+
+.copyright h4{
+    text-align: center;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    margin-bottom: -30px;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .footer-class{
+        grid-template-columns: 1fr 1fr;
+        justify-items: start;
+        column-gap: 40px;
+    }
+}
