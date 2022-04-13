@@ -21,6 +21,7 @@ Route::get('detail/{post:slug}', [PostController::class, 'show'])->name('detail'
 Route::get('categories', function () {
     return view('categories', [
         'title' => 'Post Categories',
+        'active' => 'categories',
         'categories' => Category::all()
     ]);
 })->name('categories');

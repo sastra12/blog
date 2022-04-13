@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'Government',
         ]);
 
-        Post::factory(20)->create();
+        Post::factory(15)->create();
 
         // Post::create([
         //     'title' => 'Judul Pertama',

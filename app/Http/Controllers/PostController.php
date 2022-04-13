@@ -15,9 +15,10 @@ class PostController extends Controller
     public function index()
     {
         // N+1 Problem can be handle use with
-        $data = Post::with(['author', 'category'])->latest()->get();
+        $data = Post::latest()->get();
         return view('home', [
             'title' => 'All Post',
+            'active' => 'home',
             'posts' => $data
         ]);
     }
@@ -52,6 +53,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('detail', [
+            'active' => 'home',
             'detail' => $post
         ]);
     }

@@ -8,10 +8,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about') }}">About</a>
+                    <a class="nav-link {{ $active === 'categories' ? 'active' : '' }}"
+                        href="{{ route('categories') }}">Category</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('blog') }}">Blog</a>
