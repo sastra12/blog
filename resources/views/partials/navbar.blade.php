@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'home' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
+                    <a class="nav-link {{ request()->segment(1) == '/' ? 'active' : '' }}" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ $active === 'categories' ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->segment(1) == 'categories' ? 'active' : '' }}"
                         href="{{ route('categories') }}">Category</a>
                 </li>
                 <li class="nav-item">
