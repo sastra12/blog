@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/component.css') }}">
 
     <title>Hello, world!</title>
 </head>

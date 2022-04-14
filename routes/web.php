@@ -1,9 +1,12 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
-use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +59,6 @@ Route::get('/about', function () {
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
