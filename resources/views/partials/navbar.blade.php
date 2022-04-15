@@ -17,11 +17,32 @@
                     <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                 </li>
             </ul>
+
+
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="{{ route('login') }}"
-                        class="nav-link {{ request()->segment(1) == 'login' ? 'active' : '' }}">Login</a>
-                </li>
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Welcome back, {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a>
+                            <div class="dropdown-divider"></div>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    Logout
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}"
+                            class="nav-link {{ request()->segment(1) == 'login' ? 'active' : '' }}">Login</a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

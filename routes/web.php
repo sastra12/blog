@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
@@ -60,5 +60,11 @@ Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest')->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
