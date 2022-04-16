@@ -37,7 +37,7 @@
                         @enderror
                     </div>
                     <div class="form-floating mt-3">
-                        <input type="text" class="form-control  @error('password') is-invalid @enderror" name="password"
+                        <input type="password" class="form-control  @error('password') is-invalid @enderror" name="password"
                             id="password" placeholder="Password">
                         <label for="password">Password</label>
                         @error('password')
