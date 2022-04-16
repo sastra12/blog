@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="{{ route('post.index') }}">
+                <a class="nav-link {{ Request::is('post*') ? 'active' : '' }}" href="{{ route('post.index') }}">
                     <span data-feather="file"></span>
                     My Post
                 </a>

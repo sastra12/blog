@@ -5,6 +5,7 @@
         <h1 class="h2">My Post</h1>
     </div>
     <div class="table-responsive">
+        <a href="{{ route('post.create') }}" class="btn btn-primary mb-2">Create new post</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
