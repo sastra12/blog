@@ -9,22 +9,38 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
+                    value="{{ old('title') }}">
+                @error('title')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="slug" class="form-label">Slug</label>
-                <input type="text" class="form-control" id="slug" name="slug">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+                    autocomplete="off" value="{{ old('slug') }}">
+                @error('slug')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
                 <select class="form-select" name="category_id">
                     @foreach ($categories as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @if (old('category_id') == $item->id)
+                            <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                        @else
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
             <div class="mb-3">
-                <textarea class="editor form-control" name="body" id="editor"></textarea>
+                <label for="category" class="form-label">Body</label>
+                @error('body')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+                <textarea class="editor form-control" name="body" id="editor">{{ Request::old('body') }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Create Post</button>
         </form>
