@@ -8,7 +8,8 @@
                 <a href="{{ route('post.index') }}" class="btn btn-sm btn-success"><span data-feather="arrow-left"></span>
                     Back to
                     all my post</a>
-                <a href="" class="btn btn-sm btn-warning"><span data-feather="edit"></span> Edit</a>
+                <a href="{{ route('post.edit', $post->slug) }}" class="btn btn-sm btn-warning"><span
+                        data-feather="edit"></span> Edit</a>
                 <form class="d-inline" action="{{ route('post.destroy', $post->slug) }}" method="POST">
                     @csrf
                     @method('delete')

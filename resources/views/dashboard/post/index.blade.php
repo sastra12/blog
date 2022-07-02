@@ -29,7 +29,8 @@
                         <td>
                             <a href="{{ route('post.show', $item->slug) }}" class="badge bg-info"><span
                                     data-feather="eye"></span></a>
-                            <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
+                            <a href="{{ route('post.edit', $item->slug) }}" class="badge bg-warning"><span
+                                    data-feather="edit"></span></a>
                             <form class="d-inline" action="{{ route('post.destroy', $item->slug) }}" method="POST">
                                 @csrf
                                 @method('delete')
