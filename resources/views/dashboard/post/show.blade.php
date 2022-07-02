@@ -5,10 +5,17 @@
         <div class="row my-3">
             <div class="col-lg-8">
                 <h1 class="mb-3">{{ $post->title }}</h1>
-                <a href="{{ route('post.index') }}" class="btn btn-success"><span data-feather="arrow-left"></span> Back to
+                <a href="{{ route('post.index') }}" class="btn btn-sm btn-success"><span data-feather="arrow-left"></span>
+                    Back to
                     all my post</a>
-                <a href="" class="btn btn-warning"><span data-feather="edit"></span> Edit</a>
-                <a href="" class="btn btn-danger"><span data-feather="x-circle"></span> Delete</a>
+                <a href="" class="btn btn-sm btn-warning"><span data-feather="edit"></span> Edit</a>
+                <form class="d-inline" action="{{ route('post.destroy', $post->slug) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                        <span data-feather="x-circle"></span>Delete
+                    </button>
+                </form>
                 <img class="img-fluid mt-3" src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
                     alt="Card image cap">
                 <article class="mt-2 fs-5">
