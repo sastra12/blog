@@ -42,10 +42,6 @@
                         <a href="{{ route('login') }}"
                             class="nav-link {{ request()->segment(1) == 'login' ? 'active' : '' }}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}"
-                            class="nav-link {{ request()->segment(1) == 'register' ? 'active' : '' }}">Register</a>
-                    </li>
                 @endauth
             </ul>
         </div>

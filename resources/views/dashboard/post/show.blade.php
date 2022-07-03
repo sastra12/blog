@@ -17,8 +17,14 @@
                         <span data-feather="x-circle"></span>Delete
                     </button>
                 </form>
-                <img class="img-fluid mt-3" src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
-                    alt="Card image cap">
+                @if ($post->image)
+                    <div style="max-height: 350px; overflow:hidden;">
+                        <img class="img-fluid mt-3" src="{{ asset('storage/' . $post->image) }}" alt="Card image cap">
+                    </div>
+                @else
+                    <img class="img-fluid mt-3" src="https://source.unsplash.com/1200x400?{{ $post->category->name }}"
+                        alt="Card image cap">
+                @endif
                 <article class="mt-2 fs-5">
                     {!! $post->body !!}
                 </article>

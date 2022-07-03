@@ -47,9 +47,17 @@ class DashboardPostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        // ddd($request);
+        // method store buat membikin nama foldernya
+        // method file buat mengambil array dengan key image(jika di ddd)
+        // return $request->file('image')->store('images');
         $data = $request->validated();
+        if ($request->file('image')) {
+            $data['image'] = $request->file('image')->store('images');
+        }
         $data['user_id'] = auth()->user()->id;
         $data['excerpt'] = Str::limit(strip_tags($request->body), 100);
+        // ddd($data);
         Post::create($data);
 
         return redirect('post')->with('success', 'New post has been added');

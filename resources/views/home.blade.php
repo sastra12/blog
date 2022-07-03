@@ -24,8 +24,15 @@
             </div>
         </div>
         <div class="card mb-3">
-            <img class="card-img-top" src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}"
-                alt="Card image cap">
+            @if ($posts[0]->image)
+                <div style="max-height: 350px; overflow:hidden;">
+                    <img class="img-fluid mt-3" src="{{ asset('storage/' . $posts[0]->image) }}" alt="Card image cap">
+                </div>
+            @else
+                <img class="card-img-top" src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}"
+                    alt="Card image cap">
+            @endif
+
             <div class="card-body">
                 <h3 class="card-title"><a href="{{ route('detail', $posts[0]->slug) }}"
                         class="text-decoration-none text-dark">{{ $posts[0]->title }}</a>
@@ -49,9 +56,14 @@
                 @foreach ($posts->skip(1) as $item)
                     <div class="col-md-4 mb-3">
                         <div class="card">
-                            <img class="card-img-top"
-                                src="https://source.unsplash.com/500x400?{{ $item->category->name }}"
-                                alt="Card image cap">
+                            @if ($item->image)
+                                <img class="img-fluid mt-3" src="{{ asset('storage/' . $item->image) }}"
+                                    alt="Card image cap">
+                            @else
+                                <img class="card-img-top"
+                                    src="https://source.unsplash.com/500x400?{{ $item->category->name }}"
+                                    alt="Card image cap">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->title }}</h5>
                                 <p>
