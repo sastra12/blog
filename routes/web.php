@@ -22,6 +22,7 @@ use App\Models\Category;
 
 Route::get('/', [PostController::class, 'index']);
 // Route::get('/', [PostController::class, 'index'])->name('home');
+// Menggunakan route model binding dengan keyword slug
 Route::get('detail/{post:slug}', [PostController::class, 'show'])->name('detail');
 Route::get('categories', function () {
     return view('categories', [

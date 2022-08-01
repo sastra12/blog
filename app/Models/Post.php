@@ -13,6 +13,7 @@ class Post extends Model
     protected $fillable = [
         'title', 'slug', 'excerpt', 'body', 'category_id', 'user_id', 'image'
     ];
+
     protected $with = ['category', 'author'];
 
     public function scopeFilter($query, array $filters)
